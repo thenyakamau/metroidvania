@@ -2987,8 +2987,8 @@ GameObject:
   - component: {fileID: 1335676127}
   - component: {fileID: 1335676131}
   - component: {fileID: 1335676129}
-  - component: {fileID: 1335676130}
   - component: {fileID: 1335676132}
+  - component: {fileID: 1335676133}
   m_Layer: 0
   m_Name: Bandit
   m_TagString: Untagged
@@ -3005,8 +3005,8 @@ Transform:
   m_GameObject: {fileID: 1335676125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.19, y: -2.6, z: -0.058476653}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.1118, y: -2.6, z: -0.058476653}
+  m_LocalScale: {x: 1.0521, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2091212219}
@@ -3090,21 +3090,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1335676130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335676125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d6cef4fb9634c9a884f586cad8531f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Waypoint1: {fileID: 1122477893}
-  Waypoint2: {fileID: 2025438222}
-  speed: 5
 --- !u!70 &1335676131
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3164,6 +3149,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1335676133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335676125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d6cef4fb9634c9a884f586cad8531f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waypoint1: {fileID: 1122477893}
+  Waypoint2: {fileID: 2025438222}
+  speed: 2
+  player: {fileID: 564457903}
+  flip: 0
 --- !u!1 &1341281939
 GameObject:
   m_ObjectHideFlags: 0

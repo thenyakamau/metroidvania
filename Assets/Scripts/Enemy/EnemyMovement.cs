@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     private bool isWalking = true;
     private string currentState = "enemy_idle";
+    public GameObject player;
+    public bool flip;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,34 +27,44 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
-        if (currentPoint == Waypoint1.transform)
+
+
+        if (player.transform.position.x > Waypoint1.transform.position.x && player.transform.position.x < Waypoint2.transform.position.x)
         {
-            rb.velocity = new Vector2(-speed, 0);
+            Eattack();
         }
+
         else
         {
-            rb.velocity = new Vector2(speed, 0);
-        }
+            Vector2 point = currentPoint.position - transform.position;
+            if (currentPoint == Waypoint1.transform)
+            {
+                rb.velocity = new Vector2(-speed, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector2(speed, 0);
+            }
 
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == Waypoint2.transform)
-        {
-            flip();
-            currentPoint = Waypoint1.transform;
-        }
-        if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == Waypoint1.transform)
-        {
-            flip();
-            currentPoint = Waypoint2.transform;
-        }
+            if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == Waypoint2.transform)
+            {
+                flip2();
+                currentPoint = Waypoint1.transform;
+            }
+            if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == Waypoint1.transform)
+            {
+                flip2();
+                currentPoint = Waypoint2.transform;
+            }
 
-        if (isWalking) 
-        {
-            ChangeAnimationState("enemy_walk");
+            if (isWalking)
+            {
+                ChangeAnimationState("enemy_walk");
+            }
         }
     }
 
-    private void flip()
+    private void flip2()
     {
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
@@ -63,7 +75,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Gizmos.DrawWireSphere(Waypoint1.transform.position, 0.5f);
         Gizmos.DrawWireSphere(Waypoint2.transform.position, 0.5f);
-        Gizmos.DrawLine(Waypoint1.transform.position, Waypoint2.transform.position); 
+        Gizmos.DrawLine(Waypoint1.transform.position, Waypoint2.transform.position);
     }
     private void ChangeAnimationState(string newState)
     {
@@ -72,4 +84,20 @@ public class EnemyMovement : MonoBehaviour
         anim.Play(newState);
         currentState = newState;
     }
+    public void Eattack()
+    {
+        Vector3 scale = transform.localScale;
+        if (player.transform.position.x > transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            transform.Translate(speed * Time.deltaTime, 0, 0);
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            transform.Translate(speed * Time.deltaTime * -1, 0, 0);
+        }
+        transform.localScale = scale;
+    }
 }
+
