@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject Waypoint1;
     public GameObject Waypoint2;
     private Rigidbody2D rb;
-    private Animator anim;
+    public Animator anim;
     private Transform currentPoint;
     public float speed;
     private bool isWalking = true;
