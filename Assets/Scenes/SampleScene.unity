@@ -3164,6 +3164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waypoint1: {fileID: 1122477893}
   Waypoint2: {fileID: 2025438222}
+  anim: {fileID: 0}
   speed: 2
   player: {fileID: 564457903}
   flip: 0
@@ -3181,6 +3182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 564457903}
   anim: {fileID: 0}
+  prox: 1.6
 --- !u!1 &1341281939
 GameObject:
   m_ObjectHideFlags: 0
