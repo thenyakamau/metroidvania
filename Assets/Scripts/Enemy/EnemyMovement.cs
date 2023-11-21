@@ -36,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
 
         else
         {
+            anim.SetBool("isRunning", true);
             Vector2 point = currentPoint.position - transform.position;
             if (currentPoint == Waypoint1.transform)
             {
@@ -86,6 +87,7 @@ public class EnemyMovement : MonoBehaviour
     }
     public void Eattack()
     {
+        anim.SetBool("isRunning", false);
         Vector3 scale = transform.localScale;
         if (player.transform.position.x > transform.position.x)
         {
