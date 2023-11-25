@@ -18,10 +18,14 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+<<<<<<< Updated upstream
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentPoint = Waypoint1.transform;
         anim.SetBool("isRunning", true);
+=======
+
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
