@@ -50,7 +50,7 @@ public class EnemyPatrol : MonoBehaviour
                 DirectionChange();
         }
 
-        private void DirectionChange() 
+        public void DirectionChange() 
         {
             anim.SetBool("isRunning", false);
              idleTimer += Time.deltaTime;
