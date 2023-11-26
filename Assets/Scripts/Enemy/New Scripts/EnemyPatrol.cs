@@ -5,23 +5,23 @@ using UnityEngine;
 public class EnemyPatrol : MonoBehaviour
 {
     [Header ("Patrol Points")]
-    [SerializedField] private Transform leftEdge;
-    [SerializedField] private Transform rightEdge;
+    [SerializeField] private Transform leftEdge;
+    [SerializeField] private Transform rightEdge;
 
     [Header("Enemy")]
-    [SerializedField] private Transform enemy;
+    [SerializeField] private Transform enemy;
 
     [Header("Movement parameters")]
-    [SerializedField] private float speed;
+    [SerializeField] private float speed;
     private Vector3 initScale;
     private bool movingLeft;
 
     [Header("Idle Behaviour")]
-    [SerializedField] private float idleDuration;
+    [SerializeField] private float idleDuration;
     private float idleTimer;
 
     [Header("Enemy Animator")]
-    [SerializedField] private animator anim;
+    [SerializeField] private animator anim;
 
     private void Awake() 
     {
@@ -50,15 +50,15 @@ public class EnemyPatrol : MonoBehaviour
                 DirectionChange();
         }
 
-        private void DirectionChange() 
-        {
-            anim.SetBool("isRunning", false);
-             idleTimer += Time.deltaTime;
+       
+    }
+    private void DirectionChange()
+    {
+        anim.SetBool("isRunning", false);
+        idleTimer += Time.deltaTime;
 
-            if(idleTimer > idleDuration)
-                movingLeft = !movingLeft;
-        }
-        
+        if (idleTimer > idleDuration)
+            movingLeft = !movingLeft;
     }
 
     private void MoveInDirection(int _direction) 
